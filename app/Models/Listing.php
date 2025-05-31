@@ -14,7 +14,7 @@ class Listing extends Model
         'land_category', 'land_status', 'house_area', 'bedrooms', 'bathrooms', 'house_floors',
         'build_year', 'house_type', 'bathroom_location', 'sewerage', 'water_supply', 'gas',
         'heating', 'electricity', 'extras', 'title', 'description', 'photos', 'videos', 'price',
-        'utilities_payer', 'prepayment', 'deposit', 'rent_term', 'living_conditions', 'phone', 'mortgage'
+        'utilities_payer', 'prepayment', 'deposit', 'rent_term', 'living_conditions', 'phone', 'mortgage', 'view_count',
     ];
 
     protected $casts = [
@@ -24,6 +24,17 @@ class Listing extends Model
         'extras' => 'array',
         'photos' => 'array',
         'videos' => 'array',
+        'view_count' => 'integer',
         'living_conditions' => 'array'
     ];
+
+    public function views()
+    {
+        return $this->hasMany(ListingView::class);
+    }
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
 }

@@ -68,6 +68,7 @@ class Kernel extends HttpKernel
         'jwt.auth' => \Tymon\JWTAuth\Http\Middleware\Authenticate::class,
 
     ];
+
     protected $commands = [
         \App\Console\Commands\UpdateListingCoordinates::class, // Добавляем нашу команду
     ];
